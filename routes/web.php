@@ -12,5 +12,11 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('front.index');
 });
+
+Route::get('/login','AuthController@loginPage');
+Route::get('/register','AuthController@registerPage');
+
+Route::post('/login',['as'=>'auth.login','uses'=>'AuthController@login']);
+Route::post('/register',['as'=>'auth.register','uses'=>'AuthController@register']);
